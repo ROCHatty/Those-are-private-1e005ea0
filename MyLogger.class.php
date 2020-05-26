@@ -2,6 +2,11 @@
 
 class MyLogger
 {
+	private function logWithTime()
+	{
+		echo "[" . date('Y-m-d H:i:s') . "] ";
+	}
+	
 	private function log($message, $level)
 	{
 		echo strtoupper($level) . ": " . $message . PHP_EOL;
@@ -9,11 +14,13 @@ class MyLogger
 	
 	public function warning($message)
 	{
+		$this -> logWithTime();
 		$this -> log($message, "warning");
 	}
 	
 	public function error($message)
 	{
+		$this -> logWithTime();
 		$this -> log($message, "error");
 	}
 	
